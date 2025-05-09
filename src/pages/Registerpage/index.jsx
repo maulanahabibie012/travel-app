@@ -3,7 +3,6 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Lock, Mail, User, Phone } from "lucide-react";
 import useAuth from "../../hooks/useAuthentication";
 import useForm from "../../hooks/useForm";
-import useBanner from "../../hooks/useBanner";
 import BGAUTH from "../../assets/image/bg-Auth.jpg";
 
 
