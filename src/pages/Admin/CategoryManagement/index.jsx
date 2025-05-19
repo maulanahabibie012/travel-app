@@ -14,8 +14,7 @@ import useAuthentication from "../../../hooks/useAuthentication";
 import DashboardSidebar from "../../../components/DashboardSidebar";
 
 const CategoryManagement = () => {
-  /* ===== STATE MANAGEMENT ===== */
-  // State untuk pencarian kategori
+  
   const [searchTerm, setSearchTerm] = useState("");
 
   // Mengambil data dan fungsi kategori dari custom hook
@@ -56,8 +55,6 @@ const CategoryManagement = () => {
     }
   };
 
-  /* ===== EVENT HANDLERS ===== */
-  // Handler untuk membuat kategori baru
   const handleCreateCategory = async (categoryData) => {
     const success = await createCategory({
       name: categoryData.name,
@@ -90,8 +87,6 @@ const CategoryManagement = () => {
     }
   };
 
-  /* ===== RENDER CONDITIONS ===== */
-  // Tampilkan loading spinner
   if (loading) {
     return (
       <div className="min-h-screen bg-gray-900 flex items-center justify-center">
@@ -111,7 +106,6 @@ const CategoryManagement = () => {
     );
   }
 
-  /* ===== MAIN RENDER ===== */
   return (
     <div className="min-h-screen w-full bg-red-600 flex">
       {/* Sidebar */}
@@ -246,16 +240,17 @@ const CategoryManagement = () => {
         </div>
         {/* Modal Form Tambah */}
         {showCreateModal && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-            <div className="bg-gray-800 p-6 rounded-lg w-96">
-              <h2 className="text-xl font-bold text-white mb-4">
+          <div className="fixed inset-0 bg-red-600 bg-opacity-50 flex items-center justify-center">
+            <div className="bg-white p-6 rounded-lg w-96">
+              <h2 className="text-xl font-bold text-black mb-4">
                 Tambah Kategori
               </h2>
-              <label className="block text-white mb-2">Nama Kategori</label>
+              <label className="block text-black mb-2">Nama Kategori</label>
               <input
                 type="text"
                 placeholder="Nama Kategori"
-                className="w-full bg-gray-700 text-white px-4 py-2 rounded-lg mb-4"
+                className="p-2 rounded bg-white text-black w-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600"
+                      required
                 value={selectedCategory?.name || ""}
                 onChange={(e) =>
                   setSelectedCategory({
@@ -264,11 +259,12 @@ const CategoryManagement = () => {
                   })
                 }
               />
-              <label className="block text-white mb-2">URL Gambar</label>
+              <label className="block text-black mb-2">URL Gambar</label>
               <input
                 type="text"
                 placeholder="URL Gambar"
-                className="w-full bg-gray-700 text-white px-4 py-2 rounded-lg mb-4"
+                className="p-2 rounded bg-white text-black w-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600"
+                      required
                 value={selectedCategory?.imageUrl || ""}
                 onChange={(e) =>
                   setSelectedCategory({
@@ -277,18 +273,18 @@ const CategoryManagement = () => {
                   })
                 }
               />
-              <div className="flex justify-end gap-4">
+              <div className="mt-4 flex justify-end gap-4">
                 <button
-                  className="px-4 py-2 bg-gray-600 text-white rounded-lg"
+                  className="px-4 py-2 bg-white text-red-600 rounded-lg border border-red-600 hover:bg-red-600 hover:text-white transition-colors duration-200"
                   onClick={() => setShowCreateModal(false)}
                 >
-                  Cancel
+                  Batal
                 </button>
                 <button
-                  className="px-4 py-2 bg-blue-600 text-white rounded-lg"
+                  className="px-4 py-2 bg-red-600 text-white rounded-lg border border-red-600 hover:bg-white hover:text-red-600 transition-colors duration-200"
                   onClick={() => handleCreateCategory(selectedCategory)}
                 >
-                  Save
+                  Simpan
                 </button>
               </div>
             </div>
@@ -296,16 +292,17 @@ const CategoryManagement = () => {
         )}
         {/* Modal Form Edit */}
         {showEditModal && selectedCategory && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-            <div className="bg-gray-800 p-6 rounded-lg w-96">
-              <h2 className="text-xl font-bold text-white mb-4">
+          <div className="fixed inset-0 bg-red-700 bg-opacity-50 flex items-center justify-center">
+            <div className="bg-white p-6 rounded-lg w-96">
+              <h2 className="text-xl font-bold text-black mb-4">
                 Edit Kategori
               </h2>
-              <label className="block text-white mb-2">Nama Kategori</label>
+              <label className="block text-black mb-2">Nama Kategori</label>
               <input
                 type="text"
                 placeholder="Nama Kategori"
-                className="w-full bg-gray-700 text-white px-4 py-2 rounded-lg mb-4"
+                className="p-2 rounded bg-white text-black w-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600"
+                      required
                 value={selectedCategory.name}
                 onChange={(e) =>
                   setSelectedCategory({
@@ -314,11 +311,12 @@ const CategoryManagement = () => {
                   })
                 }
               />
-              <label className="block text-white mb-2">URL Gambar</label>
+              <label className="block text-black mb-2">URL Gambar</label>
               <input
                 type="text"
                 placeholder="URL Gambar"
-                className="w-full bg-gray-700 text-white px-4 py-2 rounded-lg mb-4"
+                className="p-2 rounded bg-white text-black w-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600"
+                      required
                 value={selectedCategory.imageUrl || ""}
                 onChange={(e) =>
                   setSelectedCategory({
@@ -327,18 +325,18 @@ const CategoryManagement = () => {
                   })
                 }
               />
-              <div className="flex justify-end gap-4">
+              <div className="flex justify-end gap-4 mt-4">
                 <button
-                  className="px-4 py-2 bg-gray-600 text-white rounded-lg"
+                  className="px-4 py-2 bg-white text-red-600 rounded-lg border border-red-600 hover:bg-red-600 hover:text-white transition-colors duration-200"
                   onClick={() => setShowEditModal(false)}
                 >
-                  Cancel
+                  Batal
                 </button>
                 <button
-                  className="px-4 py-2 bg-blue-600 text-white rounded-lg"
+                  className="px-4 py-2 bg-red-600 text-white rounded-lg border border-red-600 hover:bg-white hover:text-red-600 transition-colors duration-200"
                   onClick={handleUpdateCategory}
                 >
-                  Save
+                  Simpan
                 </button>
               </div>
             </div>

@@ -234,13 +234,14 @@ const UserManagement = () => {
 
         {/* Modal Edit Role */}
         {showEditModal && selectedUser && (
-          <div className="fixed inset-0 bg-opacity-50 flex items-center justify-center">
+          <div className="fixed inset-0 bg-red-600 flex items-center justify-center">
             <div className="bg-white p-6 rounded-lg w-96 border border-red-700 shadow-lg">
               <h2 className="text-xl font-bold text-black mb-4">
                 Edit User Role
               </h2>
               <select
-                className="w-full bg-white border border-red-700 text-black px-4 py-2 hover:bg-red-700 hover:text-white rounded-lg mb-4"
+                className="p-2 rounded bg-white text-black w-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600"
+                      required
                 value={selectedUser.role}
                 onChange={(e) =>
                   setSelectedUser({ ...selectedUser, role: e.target.value })
@@ -249,18 +250,18 @@ const UserManagement = () => {
                 <option value="user">User</option>
                 <option value="admin">Admin</option>
               </select>
-              <div className="flex justify-end gap-4">
+              <div className="flex justify-end gap-4 mt-4">
                 <button
-                  className="px-4 py-2 bg-white border border-red-700 text-red-600 hover:bg-red-700 hover:text-white rounded-lg"
+                  className="px-4 py-2 bg-white text-red-600 rounded-lg border border-red-600 hover:bg-red-600 hover:text-white transition-colors duration-200"
                   onClick={() => setShowEditModal(false)}
                 >
-                  Cancel
+                  Batal
                 </button>
                 <button
-                  className="px-4 py-2 bg-red-600 text-white hover:bg-red-700 rounded-lg"
+                  className="px-4 py-2 bg-red-600 text-white rounded-lg border border-red-600 hover:bg-white hover:text-red-600 transition-colors duration-200"
                   onClick={handleRoleUpdate}
                 >
-                  Save
+                  Simpan
                 </button>
               </div>
             </div>

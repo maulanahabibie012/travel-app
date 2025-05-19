@@ -158,33 +158,35 @@ import DashboardSidebar from "../../../components/DashboardSidebar";
 
         {/* Form modal untuk tambah/edit */}
         {showForm && (
-          <div className="fixed inset-0 bg-red-600 bg-opacity-50 flex items-center justify-center overflow-y-auto">
-            <div className="bg-gray-800 p-6 rounded-lg w-full max-w-lg max-h-[90%] overflow-y-auto">
-              <h2 className="text-xl font-bold text-white mb-4">
+          <div className="fixed inset-0 bg-red-700 bg-opacity-50 flex items-center justify-center overflow-y-auto">
+            <div className="bg-white p-6 rounded-lg w-full max-w-lg max-h-[90%] overflow-y-auto">
+              <h2 className="text-xl font-bold text-black mb-4">
                 {formData.id ? "Edit Banner" : "Tambah Banner"}
               </h2>
               <form onSubmit={handleFormSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="mb-4">
-                    <label className="text-white">Nama</label>
+                    <label className="text-black">Nama</label>
                     <input
                       type="text"
                       name="name"
                       placeholder="Nama"
                       value={formData.name}
                       onChange={handleInputChange}
-                      className="p-2 rounded w-full"
+                      className="p-2 rounded bg-white text-black w-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600"
+                      required
                     />
                   </div>
                   <div className="mb-4">
-                    <label className="text-white">URL Gambar</label>
+                    <label className="text-black">URL Gambar</label>
                     <input
                       type="text"
                       name="imageUrl"
                       placeholder="URL Gambar"
                       value={formData.imageUrl}
                       onChange={handleInputChange}
-                      className="p-2 rounded w-full"
+                      className="p-2 rounded bg-white text-black w-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600"
+                      required
                     />
                   </div>
                 </div>
@@ -192,13 +194,13 @@ import DashboardSidebar from "../../../components/DashboardSidebar";
                   <button
                     type="button"
                     onClick={() => setShowForm(false)}
-                    className="px-4 py-2 bg-gray-600 text-white rounded-lg"
+                    className="px-4 py-2 text-red-600 rounded-lg border border-red-600 hover:bg-red-600 hover:text-white transition-colors duration-200"
                   >
                     Batal
                   </button>
                   <button
                     type="submit"
-                    className="px-4 py-2 bg-blue-600 text-white rounded-lg"
+                    className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-white  border border-red-600 hover:text-red-600 transition-colors duration-200"
                   >
                     Simpan
                   </button>
@@ -259,7 +261,7 @@ import DashboardSidebar from "../../../components/DashboardSidebar";
           </div>
         </div>
 
-        {/* Kontrol pagination */}
+        {/* Pagination */}
         <div className="flex justify-center gap-2 mt-4">
           <button
             onClick={() => handlePageChange(currentPage - 1)}

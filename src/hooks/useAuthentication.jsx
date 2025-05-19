@@ -74,7 +74,7 @@ const useAuthentication = () => {
     setLoading(true);
     const success = await handleAuthRequest(
       "https://travel-journal-api-bootcamp.do.dibimbing.id/api/v1/register",
-      { ...userData, passwordConfirmation: userData.password }
+      { ...userData, passwordRepeat: userData.password }
     );
     if (success) {
       const redirectTo =

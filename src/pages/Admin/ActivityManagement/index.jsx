@@ -200,7 +200,7 @@ const ActivityManagement = () => {
         {/* Modal form untuk tambah/edit */}
         {showForm && (
           <div className="fixed inset-0 bg-red-600 bg-opacity-50 flex items-center justify-center overflow-y-auto">
-            <div className="bg-gray-800 p-6 rounded-lg w-full max-w-lg max-h-[90%] overflow-y-auto">
+            <div className="bg-white p-6 rounded-lg w-full max-w-lg max-h-[90%] overflow-y-auto">
               <h2 className="text-xl font-bold text-black mb-4">
                 {formData.id ? "Edit Aktivitas" : "Tambah Aktivitas"}
               </h2>
@@ -214,7 +214,8 @@ const ActivityManagement = () => {
                       placeholder="Judul"
                       value={formData.title}
                       onChange={handleInputChange}
-                      className="p-2 rounded w-full"
+                      className="p-2 rounded bg-white text-black w-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600"
+                      required
                       maxLength={20}
                     />
                   </div>
@@ -224,7 +225,8 @@ const ActivityManagement = () => {
                       name="categoryId"
                       value={formData.categoryId}
                       onChange={handleInputChange}
-                      className="p-2 rounded bg-gray-700 text-black w-full"
+                      className="p-2 rounded bg-white text-black w-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600"
+                      required
                     >
                       <option value="">Pilih Kategori</option>
                       {categories.map((category) => (
@@ -241,7 +243,8 @@ const ActivityManagement = () => {
                       placeholder="Deskripsi"
                       value={formData.description}
                       onChange={handleInputChange}
-                      className="p-2 rounded w-full"
+                      className="p-2 rounded bg-white text-black w-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600"
+                      required
                     />
                   </div>
                   <div className="mb-4">
@@ -252,7 +255,8 @@ const ActivityManagement = () => {
                       placeholder="Harga"
                       value={formData.price}
                       onChange={handleInputChange}
-                      className="p-2 rounded w-full"
+                      className="p-2 rounded bg-white text-black w-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600"
+                      required
                     />
                   </div>
                   <div className="mb-4">
@@ -263,7 +267,8 @@ const ActivityManagement = () => {
                       placeholder="Harga Diskon"
                       value={formData.priceDiscount}
                       onChange={handleInputChange}
-                      className="p-2 rounded w-full"
+                      className="p-2 rounded bg-white text-black w-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600"
+                      required
                     />
                   </div>
                   <div className="mb-4">
@@ -274,7 +279,8 @@ const ActivityManagement = () => {
                       placeholder="Rating"
                       value={formData.rating}
                       onChange={handleInputChange}
-                      className="p-2 rounded w-full"
+                      className="p-2 rounded bg-white text-black w-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600"
+                      required
                     />
                   </div>
                   <div className="mb-4">
@@ -285,7 +291,8 @@ const ActivityManagement = () => {
                       placeholder="Total Ulasan"
                       value={formData.totalReviews}
                       onChange={handleInputChange}
-                      className="p-2 rounded w-full"
+                      className="p-2 rounded bg-white text-black w-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600"
+                      required
                     />
                   </div>
                   <div className="col-span-2 mb-4">
@@ -295,7 +302,8 @@ const ActivityManagement = () => {
                       placeholder="Fasilitas"
                       value={formData.facilities}
                       onChange={handleInputChange}
-                      className="p-2 rounded w-full"
+                      className="p-2 rounded bg-white text-black w-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600"
+                      required
                     />
                   </div>
                   <div className="mb-4">
@@ -306,7 +314,8 @@ const ActivityManagement = () => {
                       placeholder="Alamat"
                       value={formData.address}
                       onChange={handleInputChange}
-                      className="p-2 rounded w-full"
+                      className="p-2 rounded bg-white text-black w-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600"
+                      required
                     />
                   </div>
                   <div className="mb-4">
@@ -317,7 +326,8 @@ const ActivityManagement = () => {
                       placeholder="Provinsi"
                       value={formData.province}
                       onChange={handleInputChange}
-                      className="p-2 rounded w-full"
+                      className="p-2 rounded bg-white text-black w-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600"
+                      required
                     />
                   </div>
                   <div className="mb-4">
@@ -328,7 +338,8 @@ const ActivityManagement = () => {
                       placeholder="Kota"
                       value={formData.city}
                       onChange={handleInputChange}
-                      className="p-2 rounded w-full"
+                      className="p-2 rounded bg-white text-black w-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600"
+                      required
                     />
                   </div>
                   <div className="col-span-2 mb-4">
@@ -346,7 +357,8 @@ const ActivityManagement = () => {
                           imageUrls: e.target.value.split(", "),
                         })
                       }
-                      className="p-2 rounded w-full"
+                      className="p-2 rounded bg-white text-black w-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600"
+                      required
                     />
                   </div>
                   <div className="col-span-2 mb-4">
@@ -357,7 +369,8 @@ const ActivityManagement = () => {
                       placeholder="Peta Lokasi"
                       value={formData.locationMaps}
                       onChange={handleInputChange}
-                      className="p-2 rounded w-full"
+                      className="p-2 rounded bg-white text-black w-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600"
+                      required
                     />
                   </div>
                 </div>
@@ -365,13 +378,13 @@ const ActivityManagement = () => {
                   <button
                     type="button"
                     onClick={() => setShowForm(false)}
-                    className="px-4 py-2 bg-white text-red-600 rounded-lg"
+                    className="px-4 py-2 bg-white text-red-600 rounded-lg border border-red-600 hover:bg-red-600 hover:text-white transition-colors duration-200"
                   >
                     Batal
                   </button>
                   <button
                     type="submit"
-                    className="px-4 py-2 bg-red-600 text-white rounded-lg"
+                    className="px-4 py-2 bg-red-600 text-white rounded-lg border border-red-600 hover:bg-white hover:text-red-600 transition-colors duration-200"
                   >
                     Simpan
                   </button>

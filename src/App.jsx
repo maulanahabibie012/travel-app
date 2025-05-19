@@ -15,6 +15,9 @@ import ActivityManagement from './pages/Admin/ActivityManagement'
 import PromoManagement from './pages/Admin/PromoManagement'
 import BannerManagement from './pages/Admin/BannerManagement'
 import TransactionManagement from './pages/Admin/TransactionManagement'
+import TransactionDetailManag from './pages/Admin/TransactionDetailManag'
+import PromoDetailManag from './pages/Admin/PromoDetailManag'
+import ActivityDetailManag from './pages/Admin/ActivityDetailManag'
 
 //user
 import CartPage from './pages/CartPage'
@@ -147,6 +150,34 @@ function App() {
                 element={
                   <ProtectedRoute adminOnly>
                     <TransactionManagement />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/transaction-management/:transactionId"
+                element={
+                  <ProtectedRoute adminOnly>
+                    <TransactionDetailManag />
+                  </ProtectedRoute>
+                }
+              />
+            </Routes>
+            <Routes>
+              <Route
+                path="/promo-management/:promoId"
+                element={
+                  <ProtectedRoute adminOnly>
+                    <PromoDetailManag />
+                  </ProtectedRoute>
+                }
+              />
+            </Routes>
+            <Routes>
+              <Route
+                path="/activity-management/:activityId"
+                element={
+                  <ProtectedRoute adminOnly>
+                    <ActivityDetailManag />
                   </ProtectedRoute>
                 }
               />

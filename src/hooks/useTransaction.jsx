@@ -160,6 +160,8 @@ const useTransaction = () => {
   // Fungsi untuk mengambil semua transaksi pengguna
   const fetchMyTransactions = async () => {
     try {
+      console.log("Fetching my transactions...");
+      
       const response = await axios.get(
         "https://travel-journal-api-bootcamp.do.dibimbing.id/api/v1/my-transactions",
         {
@@ -292,6 +294,8 @@ const useTransaction = () => {
   useEffect(() => {
     fetchPaymentMethods();
     fetchMyTransactions();
+    console.log("Fetching payment methods and transactions...");
+    
   }, []);
 
   // Kembalikan variabel state dan fungsi untuk digunakan dalam komponen

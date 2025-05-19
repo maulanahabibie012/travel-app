@@ -15,6 +15,7 @@ import DashboardSidebar from "../../../components/DashboardSidebar";
 import { useNavigate } from "react-router-dom";
 
 const PromoManagement = () => {
+  const navigate = useNavigate();
   /* ===== STATE MANAGEMENT ===== */
   // Mengambil data dan fungsi promo dari custom hook
   const {
@@ -167,85 +168,92 @@ const PromoManagement = () => {
         {/* Form Modal */}
         {showForm && (
           <div className="fixed inset-0 bg-red-600 bg-opacity-50 flex items-center justify-center overflow-y-auto">
-            <div className="bg-gray-800 p-6 rounded-lg w-full max-w-lg max-h-[90%] overflow-y-auto">
-              <h2 className="text-xl font-bold text-white mb-4">
+            <div className="bg-white p-6 rounded-lg w-full max-w-lg max-h-[90%] overflow-y-auto">
+              <h2 className="text-xl font-bold text-black mb-4">
                 {formData.id ? "Edit Promo" : "Tambah Promo"}
               </h2>
               <form onSubmit={handleFormSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="mb-4">
-                    <label className="text-white">Judul</label>
+                    <label className="text-black">Judul</label>
                     <input
                       type="text"
                       name="title"
                       placeholder="Judul"
                       value={formData.title}
                       onChange={handleInputChange}
-                      className="p-2 rounded w-full"
+                      className="p-2 rounded bg-white text-black w-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600"
+                      required
                     />
                   </div>
                   <div className="col-span-2 mb-4">
-                    <label className="text-white">Deskripsi</label>
+                    <label className="text-black">Deskripsi</label>
                     <textarea
                       name="description"
                       placeholder="Deskripsi"
                       value={formData.description}
                       onChange={handleInputChange}
-                      className="p-2 rounded w-full"
+                      className="p-2 rounded bg-white text-black w-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600"
+                      required
                     />
                   </div>
                   <div className="mb-4">
-                    <label className="text-white">URL Gambar</label>
+                    <label className="text-black">URL Gambar</label>
                     <input
                       type="text"
                       name="imageUrl"
                       placeholder="URL Gambar"
                       value={formData.imageUrl}
                       onChange={handleInputChange}
-                      className="p-2 rounded w-full"
+                      className="p-2 rounded bg-white text-black w-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600"
+                      required
                     />
                   </div>
                   <div className="col-span-2 mb-4">
-                    <label className="text-white">Syarat dan Ketentuan</label>
+                    <label className="text-black">Syarat dan Ketentuan</label>
                     <textarea
                       name="terms_condition"
                       placeholder="Syarat dan Ketentuan"
                       value={formData.terms_condition}
                       onChange={handleInputChange}
-                      className="p-2 rounded w-full"
+                      className="p-2 rounded bg-white text-black w-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600"
+                      required
                     />
                   </div>
                   <div className="mb-4">
-                    <label className="text-white">Kode Promo</label>
+                    <label className="text-black">Kode Promo</label>
                     <input
                       type="text"
                       name="promo_code"
                       placeholder="Kode Promo"
                       value={formData.promo_code}
                       onChange={handleInputChange}
-                      className="p-2 rounded w-full"
+                      className="p-2 rounded bg-white text-black w-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600"
+                      required
                     />
                   </div>
                   <div className="mb-4">
-                    <label className="text-white">Diskon Promo</label>
+                    <label className="text-black">Diskon Promo</label>
                     <input
                       type="number"
                       name="promo_discount_price"
                       placeholder="Diskon Promo"
                       value={formData.promo_discount_price}
                       onChange={handleInputChange}
-                      className="p-2 rounded w-full"
+                      className="p-2 rounded bg-white text-black w-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600"
+                      required
                     />
                   </div>
                   <div className="mb-4">
-                    <label className="text-white">Minimal Klaim</label>
+                    <label className="text-black">Minimal Klaim</label>
                     <input
                       type="number"
                       name="minimum_claim_price"
                       placeholder="Minimal Klaim"
                       value={formData.minimum_claim_price}
                       onChange={handleInputChange}
-                      className="p-2 rounded w-full"
+                      className="p-2 rounded bg-white text-black w-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600"
+                      required
                     />
                   </div>
                 </div>
@@ -253,13 +261,13 @@ const PromoManagement = () => {
                   <button
                     type="button"
                     onClick={() => setShowForm(false)}
-                    className="px-4 py-2 bg-white text-red-600 rounded-lg"
+                    className="px-4 py-2 bg-white text-red-600 rounded-lg border border-red-600 hover:bg-red-600 hover:text-white transition duration-200"
                   >
                     Batal
                   </button>
                   <button
                     type="submit"
-                    className="px-4 py-2 bg-red-600 text-white rounded-lg"
+                    className="px-4 py-2 bg-red-600 text-white rounded-lg border border-red-600 hover:bg-white hover:text-red-600 transition duration-200"
                   >
                     Simpan
                   </button>
@@ -312,7 +320,9 @@ const PromoManagement = () => {
                     <td className="px-6 py-4 whitespace-nowrap flex gap-4">
                       <button
                         onClick={() =>
-                          navigate(`/promo-management/${promo.id}`)
+                          navigate(`/promo-management/${promo.id}`, {
+                            state: { promo },
+                          })
                         }
                         className="text-green-400 hover:text-green-300"
                       >

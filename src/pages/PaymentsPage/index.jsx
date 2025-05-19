@@ -4,24 +4,23 @@ import { Upload, X, CheckCircle } from "lucide-react";
 import useTransaction from "../../hooks/useTransaction.jsx";
 import Navbar from "../../components/Navbar/index.jsx";
 
-
 const PaymentsPage = () => {
   // Inisialisasi state dan hooks untuk manajemen pembayaran
   const { transactionId } = useParams();
   const navigate = useNavigate();
   const {
-    uploadProofOfPayment,    // Fungsi untuk upload bukti pembayaran
-    updateProofPayment,      // Fungsi untuk update data pembayaran
-    fetchTransaction,        // Fungsi untuk mengambil data transaksi
+    uploadProofOfPayment, // Fungsi untuk upload bukti pembayaran
+    updateProofPayment, // Fungsi untuk update data pembayaran
+    fetchTransaction, // Fungsi untuk mengambil data transaksi
     loading,
     error,
   } = useTransaction();
 
   // State untuk manajemen UI dan data
   const [toast, setToast] = useState({ show: false, message: "", type: "" });
-  const [proofImage, setProofImage] = useState(null);           // File gambar yang dipilih
+  const [proofImage, setProofImage] = useState(null); // File gambar yang dipilih
   const [uploadedImageUrl, setUploadedImageUrl] = useState(""); // URL gambar yang sudah diupload
-  const [previewUrl, setPreviewUrl] = useState(null);          // URL preview gambar
+  const [previewUrl, setPreviewUrl] = useState(null); // URL preview gambar
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [transaction, setTransaction] = useState(null);
 
@@ -217,27 +216,27 @@ const PaymentsPage = () => {
               )}
             </div>
           </div>
-
-
         </div>
       </div>
 
       {/* Modal Sukses Upload - Fixed closing tags */}
       {showSuccessModal && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+        <div className="fixed inset-0 flex items-center justify-center bg-red-600 bg-opacity-50 z-50">
           <div className="bg-white rounded-2xl shadow-lg p-8 transition-all hover:shadow-xl w-full max-w-md text-center">
             <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
             <h2 className="text-2xl font-bold mb-4 text-gray-900">
               Bukti Pembayaran Berhasil Diunggah!
             </h2>
             <p className="text-gray-600 mb-6">
-              Bukti pembayaran Anda telah diunggah. Anda dapat melihat transaksi Anda dengan mengklik tombol di bawah ini.
+              Pembayaran Anda sudah berhasil diunggah. Anda bisa melihat detail
+              transaksi Anda dengan mengklik tombol di bawah ini.
             </p>
             <button
               onClick={() => navigate("/transactions")}
-              className="w-full px-6 py-3 bg-blue-600 text-white rounded-xl font-medium hover:bg-blue-700 transition-colors"
+              className="w-full px-4 py-2 text-red-600 rounded-lg border border-red-600 hover:bg-red-600 hover:text-white transition-colors duration-200"
             >
-              Transaksi Saya            </button>
+              Transaksi Saya{" "}
+            </button>
           </div>
         </div>
       )}

@@ -11,6 +11,7 @@ const RegisterPage = () => {
   const { values, handleChange } = useForm({
     name: "", // Nama lengkap user
     email: "", // Alamat email user
+    role: "", // Role user
     password: "", // Password user
     phoneNumber: "", // Nomor telepon user
   });
@@ -95,6 +96,24 @@ const RegisterPage = () => {
                 required
                 className="pl-10 pr-4 py-3 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
               />
+            </div>
+
+            {/* select Role user or admin with Icon */}
+            <div className="relative">
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <User className="h-5 w-5 text-gray-400" />
+              </div>
+              <select
+                name="role"
+                value={values.role}
+                onChange={handleChange}
+                required
+                className="pl-10 pr-4 py-3 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
+              >
+                <option value="">Pilih Role</option>
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+              </select>
             </div>
 
             {/* Input Email dengan Icon */}
